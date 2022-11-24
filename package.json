@@ -1,0 +1,29 @@
+{
+    "name": "template-ts-vite-react-electron",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "electron:dev": "concurrently -k \"cross-env BROWSER=none yarn dev\" \"yarn electron:start\"",
+        "electron:compile": "tsc --project electron/tsconfig.json",
+        "electron:start": "wait-on tcp:5173 && yarn electron:compile && electron dist-electron/index.js"
+    },
+    "private": true,
+    "license": "MIT",
+    "author": "BaTzzFR",
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.24",
+        "@types/react-dom": "^18.0.8",
+        "@vitejs/plugin-react": "^2.2.0",
+        "concurrently": "^7.6.0",
+        "cross-env": "^7.0.3",
+        "electron": "^21.3.1",
+        "typescript": "^4.6.4",
+        "vite": "^3.2.3",
+        "wait-on": "^6.0.1"
+    }
+}
